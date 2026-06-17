@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bfhl-api
+    env: java
+    plan: free
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/bfhl-api-1.0.0.jar"
+    envVars:
+      - key: JAVA_VERSION
+        value: 21
+      - key: SERVER_PORT
+        value: 8080
+    healthCheckPath: /actuator/health
