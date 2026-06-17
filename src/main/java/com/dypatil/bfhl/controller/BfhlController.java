@@ -29,6 +29,18 @@ public class BfhlController {
     private final BfhlService bfhlService;
 
     /**
+     * GET /bfhl
+     * Returns the operation code as per BFHL specification.
+     *
+     * @return operation_code 1
+     */
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getOperationCode() {
+        log.info("Received GET /bfhl");
+        return ResponseEntity.ok(java.util.Map.of("operation_code", 1));
+    }
+
+    /**
      * POST /bfhl
      * Accepts a mixed array of strings and returns categorized, processed data.
      *
